@@ -1,3 +1,23 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "noImplicitThis": false,
+    "types": ["node"],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "allowImportingTsExtensions": false
+  },
+  "include": [
+    "./src/**/*",
+    "./src/@types/**/*",
+    "index.d.ts",
+    "babel.config.js",
+    "index.js",
+    "declarations.d.ts"
+  ],
+  "typeRoots": ["types"]
 }
