@@ -1,14 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
+import Routes from '@/navigation/routes'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const App = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'pink' }}>
-      <Text style={{ color:'red' }}>App</Text>
-    </View>
+     <GestureHandlerRootView style={{ flex: 1 }}>
+      <Routes/>
+     </GestureHandlerRootView>
   )
 }
 
-export default App
-
-const styles = StyleSheet.create({})
+export default App;
