@@ -7,6 +7,7 @@ export type AuthStackParamList = {
     mobileNumber: string;
   };
   HomeScreen: undefined;
+  SearchScreen: undefined;
 };
 
 export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> = StackScreenProps<

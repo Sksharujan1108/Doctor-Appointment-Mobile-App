@@ -1,14 +1,30 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Header from '@/component/header'
+import Colors from '@/utlis/colors'
+import { AuthStackScreenProps } from '@/navigation/navigation-model/auth-model/authModel'
+import CatergoriesList from '@/component/catergories'
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}: AuthStackScreenProps<'HomeScreen'>) => {
   return (
-    <View>
+    <View style={styles.container}>
+      <Header
+        title='Sk Sarujan'
+        onPress={() => {}}
+        onPressSearch={() => navigation.navigate('SearchScreen')}
+      />
       <Text>HomeScreen</Text>
+      <CatergoriesList/>
     </View>
   )
 }
 
 export default HomeScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+})

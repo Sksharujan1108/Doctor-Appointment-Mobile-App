@@ -20,4 +20,24 @@ export const styles = StyleSheet.create({
     color: '#0B3DA9',
     textAlign: 'center',
   },
+
+  otpInputContainer: {
+    // backgroundColor: 'red'
+  },
+  pinCodeContainer: {
+    width: 50,
+    height: 50,
+    // backgroundColor: 'pink'
+  },
+  pinCodeText: {
+    fontSize: 20,
+    color: '#000',
+    textAlign: 'center',
+  },
+  activePinCodeContainer: {
+    borderColor: '#0B3DA9',
+  },
+  filledPinCodeContainer: {
+    borderColor: '#000',
+  }
 });

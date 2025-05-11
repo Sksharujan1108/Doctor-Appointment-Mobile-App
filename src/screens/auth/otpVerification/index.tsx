@@ -40,6 +40,13 @@ const OtpVerificationScreen = ({ navigation, route}: AuthStackScreenProps<'OtpVe
           numberOfDigits={6}
           onTextChange={onChangeText}
           onFilled={onOtpFilled}
+          theme={{
+            containerStyle: styles.otpInputContainer,
+            pinCodeContainerStyle: styles.pinCodeContainer,
+            pinCodeTextStyle: styles.pinCodeText,
+            focusedPinCodeContainerStyle: styles.activePinCodeContainer,
+            filledPinCodeContainerStyle: styles.filledPinCodeContainer,
+          }}
         />
       </View>
 
