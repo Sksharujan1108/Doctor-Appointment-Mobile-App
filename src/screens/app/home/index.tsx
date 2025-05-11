@@ -13,7 +13,6 @@ const HomeScreen = ({navigation}: AuthStackScreenProps<'HomeScreen'>) => {
         onPress={() => {}}
         onPressSearch={() => navigation.navigate('SearchScreen')}
       />
-      <Text>HomeScreen</Text>
       <CatergoriesList/>
     </View>
   )
