@@ -8,6 +8,10 @@ export type AuthStackParamList = {
   };
   HomeScreen: undefined;
   SearchScreen: undefined;
+  DoctorListScreen: undefined;
+  DoctorDetailsScreen: {
+    doctorId: any;
+  };
 };
 
 export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> = StackScreenProps<
