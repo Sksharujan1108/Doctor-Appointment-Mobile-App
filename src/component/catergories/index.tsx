@@ -50,7 +50,7 @@ const CatergoriesList = (props: CatergoriesListProps) => {
               index={index}
             />
         )}
-        contentContainerStyle={{ gap: 10 }}
+        contentContainerStyle={{ gap: 10, padding: 15 }}
       />
     </View>
   )
@@ -60,7 +60,7 @@ export default CatergoriesList
 
 const styles = StyleSheet.create({
     flatListStyle: {
-        padding: 15,
+        // padding: 15,
     },
     catergoryItem: {
         backgroundColor: '#E9E9FE',

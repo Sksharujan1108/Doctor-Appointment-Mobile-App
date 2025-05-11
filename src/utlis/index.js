@@ -5,6 +5,8 @@ import Google from '@/assets/img/google_icon.png';
 import Notification from '@/assets/img/notification.png';
 import Search from '@/assets/img/search.png';
 import ProfileImage from '@/assets/img/avatar.png';
+import RatingStar from '@/assets/img/star.png';
+import BackImage from '@/assets/img/back.png';
 
 export const images = {
   OnboardingBgImage,
@@ -14,4 +16,6 @@ export const images = {
   Notification,
   Search,
   ProfileImage,
+  RatingStar,
+  BackImage
 };
