@@ -1,4 +1,4 @@
-export const specialties = [
+export const specialtiesData = [
   { id: '1', title: 'Dermatologist', description: 'Expert in skin, hair, and nails.' },
   { id: '2', title: 'Cardiologist', description: 'Specialist in heart and blood vessel disorders.' },
   { id: '3', title: 'Orthopedic Surgeon', description: 'Expert in musculoskeletal system issues.' },

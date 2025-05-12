@@ -36,7 +36,7 @@ const DoctorsList = (props: DoctorsListProps) => {
         renderItem={({ item }) => (
             <DoctorCard
               key={item?.id}
-              data={item}
+              getData={item}
               horizontal={horizontal}
               onPress={(id) => onPressClick(id)}
             />

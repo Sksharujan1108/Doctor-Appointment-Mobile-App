@@ -1,19 +1,23 @@
 import {
   Dimensions,
   Image,
+  StyleProp,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  ViewStyle,
 } from 'react-native';
-import React from 'react';
+import React, {useMemo} from 'react';
 import {images} from '@/utlis';
+import {useQuery} from '@tanstack/react-query';
+import {fetchspecialtiesData} from '@/api/specialitiesData';
 
 const CardGap = 16;
 const CardWith = (Dimensions.get('window').width - CardGap * 3) / 2;
 
 interface DoctorCardProps {
-  data: {
+  getData: {
     id: string;
     name: string;
     speciality: string;
@@ -23,33 +27,64 @@ interface DoctorCardProps {
     rating: string;
     fees: string;
   };
+  containerStyle: StyleProp<ViewStyle>;
+  imageStyleProps?: any;
+  disable: boolean;
   horizontal: any;
   onPress?: (id: any) => void;
+  displayAll?: boolean;
 }
 
 const DoctorCard = (props: DoctorCardProps) => {
-  const {data, horizontal, onPress} = props;
+  const {
+    getData,
+    containerStyle,
+    imageStyleProps,
+    horizontal,
+    onPress,
+    disable,
+    displayAll,
+  } = props;
+
+  // Specialities
+  const {data} = useQuery({
+    queryKey: ['specialities'],
+    queryFn: fetchspecialtiesData,
+  });
+
+  const specialityObj = useMemo(() => {
+    return data?.find(item => item?.id == getData?.speciality);
+  }, [getData?.speciality, data]);
 
   return (
-    <TouchableOpacity 
-      style={[, styles.container]}
-      onPress={() => onPress?.(data.id)}
-    >
+    <TouchableOpacity
+      style={[, styles.container, containerStyle]}
+      onPress={() => onPress?.(getData.id)}
+      disabled={disable}>
       <Image
         source={require('@/assets/img/doctorImage.jpg')}
-        style={[styles.imageStyle, !horizontal ? {height: 220} : {}]}
+        style={[
+          styles.imageStyle,
+          !horizontal ? {height: 220} : {},
+          imageStyleProps,
+        ]}
       />
 
       <View style={styles.rowContainer}>
-        <Text style={styles.nameText}>{data?.name}</Text>
+        <Text style={styles.nameText}>{getData?.name}</Text>
         <View style={{flexDirection: 'row', flexWrap: 'wrap', gap: 5}}>
           <Image source={images?.RatingStar} />
-          <Text style={styles.nameText}>{data?.rating}</Text>
+          <Text style={styles.nameText}>{getData?.rating}</Text>
         </View>
         {/*  */}
-        <View style={{flexDirection: 'row', paddingVertical: 5}}>
-          <Text style={styles.nameText}>Fee LKR {data?.fees}</Text>
-        </View>
+      </View>
+      <View style={{flexDirection: 'row', padding: 5}}>
+        {displayAll && (
+          <Text style={{paddingRight: 15}}>{specialityObj?.title}</Text>
+        )}
+        {!displayAll && (
+          <Text style={styles.nameText}>Fee LKR {getData?.fees}</Text>
+        )}
       </View>
     </TouchableOpacity>
   );
