@@ -7,7 +7,6 @@ export const fetchDoctors = async () => {
 
     // const { data } = await axios.get(url);
     // return data;
-
     return doctorsData;
 }
 

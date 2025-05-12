@@ -8,6 +8,12 @@ import ProfileImage from '@/assets/img/avatar.png';
 import RatingStar from '@/assets/img/star.png';
 import BackImage from '@/assets/img/back.png';
 
+import PatientsImg from '@/assets/img/users.png';
+import YearOfExp from '@/assets/img/trend.png';
+import Rating from '@/assets/img/rating.png';
+import Review from '@/assets/img/chat.png';
+
+
 export const images = {
   OnboardingBgImage,
   OnboardingDoctorImage,
@@ -18,4 +24,11 @@ export const images = {
   ProfileImage,
   RatingStar,
   BackImage
+};
+
+export const icons = {
+  PatientsImg,
+  YearOfExp,
+  Rating,
+  Review,
 };
