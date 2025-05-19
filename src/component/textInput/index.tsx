@@ -3,17 +3,17 @@ import React, { useState } from 'react'
 import Colors from '@/utlis/colors';
 
 interface TextInputFieldProps {
-    label: string;
     placeholder: string;
     value: string;
     onChangeText: (text: string) => void;
     keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
     maxLength?: number;
     onBlur?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
+    error: string;
 }
 
 const TextInputField = (props: TextInputFieldProps) => {
-    const { label, placeholder, value, onChangeText, keyboardType, maxLength, onBlur } = props;
+    const { placeholder, value, onChangeText, keyboardType, maxLength, onBlur, error } = props;
 
     const [focus, setFocus] = useState(false);
   return (
@@ -38,6 +38,7 @@ const TextInputField = (props: TextInputFieldProps) => {
             onBlur && onBlur(e);
           }}
         />
+        {error && <Text style={styles.validationText}>{error}</Text>}
     </View>
   )
 }
@@ -59,5 +60,11 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         fontSize: 16,
         color: '#000',
+    },
+
+    validationText: {
+      color: Colors.danger,
+      fontSize: 12,
+      marginTop: 0.5,
     },
 })
