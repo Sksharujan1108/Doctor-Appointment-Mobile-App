@@ -12,6 +12,9 @@ export type AuthStackParamList = {
   DoctorDetailsScreen: {
     doctorId: any;
   };
+  BookAppointmentScreen: {
+    doctorId: any;
+  };
 };
 
 export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> = StackScreenProps<

@@ -33,6 +33,7 @@ interface DoctorCardProps {
   horizontal: any;
   onPress?: (id: any) => void;
   displayAll?: boolean;
+  changeRowContainer?: StyleProp<ViewStyle>;
 }
 
 const DoctorCard = (props: DoctorCardProps) => {
@@ -44,6 +45,7 @@ const DoctorCard = (props: DoctorCardProps) => {
     onPress,
     disable,
     displayAll,
+    changeRowContainer,
   } = props;
 
   // Specialities
@@ -72,13 +74,18 @@ const DoctorCard = (props: DoctorCardProps) => {
 
       <View style={styles.rowContainer}>
         <Text style={styles.nameText}>{getData?.name}</Text>
-        <View style={{flexDirection: 'row', flexWrap: 'wrap', gap: 5}}>
+        <View style={{flexDirection: 'row', flexWrap: 'wrap', gap: displayAll ? 8 : 2}}>
           <Image source={images?.RatingStar} />
           <Text style={styles.nameText}>{getData?.rating}</Text>
         </View>
         {/*  */}
       </View>
-      <View style={{flexDirection: 'row', padding: 5}}>
+      <View 
+        style={[
+          changeRowContainer,
+          {flexDirection: 'row', padding: 5},
+          ]}
+        >
         {displayAll && (
           <Text style={{paddingRight: 15}}>{specialityObj?.title}</Text>
         )}
@@ -113,5 +120,6 @@ const styles = StyleSheet.create({
   nameText: {
     fontSize: 14,
     fontWeight: '400',
+    // backgroundColor: 'red'
   },
 });

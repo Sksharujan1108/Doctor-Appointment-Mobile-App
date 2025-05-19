@@ -8,6 +8,7 @@ import HomeScreen from '@/screens/app/home';
 import SearchScreen from '@/screens/app/search';
 import DoctorListScreen from '@/screens/app/doctorsList';
 import DoctorDetailsScreen from '@/screens/app/doctorDetails';
+import BookAppointmentScreen from '@/screens/app/bookAppintment';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
@@ -24,6 +25,7 @@ const AuthStack = () => {
       <Stack.Screen name='SearchScreen' component={SearchScreen} />
       <Stack.Screen name='DoctorListScreen' component={DoctorListScreen} />
       <Stack.Screen name='DoctorDetailsScreen' component={DoctorDetailsScreen} />
+      <Stack.Screen name='BookAppointmentScreen' component={BookAppointmentScreen} />
     </Stack.Navigator>
   );
 };

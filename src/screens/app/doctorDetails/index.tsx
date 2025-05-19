@@ -73,7 +73,14 @@ const DoctorDetailsScreen = ({
       </ScrollView>
 
       <View style={styles.footerBtn}>
-        <PrimaryButton label="Book an Appointment" onPress={() => {}} />
+        <PrimaryButton 
+          label="Book an Appointment" 
+          onPress={() => {
+            navigation.navigate('BookAppointmentScreen', {
+              doctorId: doctorId,
+            });
+          }} 
+        />
       </View>
     </SafeAreaView>
   );
