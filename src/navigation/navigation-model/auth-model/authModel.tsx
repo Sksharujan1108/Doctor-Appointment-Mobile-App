@@ -6,15 +6,6 @@ export type AuthStackParamList = {
   OtpVerificationScreen: {
     mobileNumber: string;
   };
-  HomeScreen: undefined;
-  SearchScreen: undefined;
-  DoctorListScreen: undefined;
-  DoctorDetailsScreen: {
-    doctorId: any;
-  };
-  BookAppointmentScreen: {
-    doctorId: any;
-  };
 };
 
 export type AuthStackScreenProps<Screen extends keyof AuthStackParamList> = StackScreenProps<

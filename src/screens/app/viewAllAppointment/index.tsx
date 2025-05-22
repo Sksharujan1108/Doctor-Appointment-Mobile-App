@@ -1,38 +1,50 @@
 /* eslint-disable react-native/no-inline-styles */
-import {
-  Image,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
-import React from 'react';
+
+import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import React, {useMemo} from 'react';
+import {selectGetSetAppointment} from '@/features/slices/confirmppointment';
+import {useAppSelector} from '@/features/stateHooks';
 import {useQuery} from '@tanstack/react-query';
 import {fetchDoctorById} from '@/api/doctors';
-import DoctorCard from '@/component/doctorCard';
-import HeaderBackBtn from '@/component/headerBackBtn';
-import {maetricesDoctor} from './constants';
 import PrimaryButton from '@/component/primaryButton';
-import {HomeStackScreenProps} from '@/navigation/navigation-model/app-model/homeModel';
-import {styles} from './styles';
+import { maetricesDoctor } from '../doctorDetails/constants';
+import DoctorCard from '@/component/doctorCard';
+import { styles } from './styles';
+import HeaderBackBtn from '@/component/headerBackBtn';
+import { images } from '@/utlis';
+import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
+import { BottomTabParamList } from '@/navigation/navigation-model/bottomModels';
 
-const DoctorDetailsScreen = ({
+const ViewAllAppointmentScreen = ({
   navigation,
   route,
-}: HomeStackScreenProps<'DoctorDetailsScreen'>) => {
-  const {doctorId} = route.params ?? {};
+}: BottomTabScreenProps<BottomTabParamList, 'ViewAllAppointmentScreen'>) => {
+  const { appointmentId } = route.params ?? {};
+  console.log('appointmentId', appointmentId);
+
+  const GetAppointmentData = useAppSelector(selectGetSetAppointment);
+  console.log('appointment', GetAppointmentData);
+
+  const appointment = useMemo(
+    () => GetAppointmentData.find(item => item.id === appointmentId),
+    [GetAppointmentData, appointmentId],
+  );
+
+  console.log('appointment------', appointment);
+
   const {data} = useQuery({
-    queryKey: ['doctorById', doctorId],
+    queryKey: ['doctorById', appointment?.doctor],
     queryFn: () => fetchDoctorById(doctorId),
   });
-  console.log('doctorId', data);
 
   return (
     <SafeAreaView style={styles.container}>
+
       <HeaderBackBtn
         label="My Appointment"
         onPress={() => navigation.goBack()}
       />
+
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{flexGrow: 1, paddingBottom: 10}}>
@@ -74,11 +86,20 @@ const DoctorDetailsScreen = ({
 
       <View style={styles.footerBtn}>
         <PrimaryButton
-          label="Book an Appointment"
+          child={
+            <Image
+              source={images.Clock}
+              style={{ width: 24, height: 24 }}
+            />
+          }
+          label={
+            `Voice Call (${appointment?.slot?.time?.split(':')[0] > 12
+                ? appointment?.slot?.time + 'PM'
+                : appointment?.slot?.time + 'AM'
+              })`
+          }
           onPress={() => {
-            navigation.navigate('BookAppointmentScreen', {
-              doctorId: doctorId,
-            });
+            // navigation.navigate('AudioCallScreen');
           }}
         />
       </View>
@@ -86,4 +107,4 @@ const DoctorDetailsScreen = ({
   );
 };
 
-export default DoctorDetailsScreen;
+export default ViewAllAppointmentScreen;

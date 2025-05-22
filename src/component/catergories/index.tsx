@@ -1,15 +1,16 @@
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useCallback, useState } from 'react'
-import { symptomsList } from '@/utlis/constants'
-import Colors from '@/utlis/colors'
+/* eslint-disable react/no-unstable-nested-components */
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { symptomsList } from '@/utlis/constants';
+import Colors from '@/utlis/colors';
 
-interface CatergoriesListProps {
+interface CategoriesListProps {
     onChangeCatergory: (item: any) => void
 }
 
-const CatergoriesList = (props: CatergoriesListProps) => {
-    const { onChangeCatergory } = props
-    const [selected, setSelected] = useState(0)
+const CategoriesList = (props: CategoriesListProps) => {
+    const { onChangeCatergory } = props;
+    const [selected, setSelected] = useState(0);
 
     const onPress = useCallback((index: any) => {
         setSelected(index);
@@ -25,18 +26,18 @@ const CatergoriesList = (props: CatergoriesListProps) => {
              ]}
               activeOpacity={0.6}
               onPress={() => {
-                onPress(index)
+                onPress(index);
               }}
             >
-                <Text 
+                <Text
                   style={[
                     styles.catergoryName,
                     index === selected && { color: Colors?.secondary },
                   ]}
                 > {item?.name} </Text>
             </TouchableOpacity>
-        )
-    }
+        );
+    };
   return (
     <View>
       <FlatList
@@ -45,18 +46,18 @@ const CatergoriesList = (props: CatergoriesListProps) => {
         showsHorizontalScrollIndicator={false}
         style={styles.flatListStyle}
         renderItem={({ item, index }) => (
-            <RendemItemList 
-              item={item} 
+            <RendemItemList
+              item={item}
               index={index}
             />
         )}
         contentContainerStyle={{ gap: 10, padding: 15 }}
       />
     </View>
-  )
-}
+  );
+};
 
-export default CatergoriesList
+export default CategoriesList;
 
 const styles = StyleSheet.create({
     flatListStyle: {
@@ -73,4 +74,4 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         color: '#000',
     },
-})
+});

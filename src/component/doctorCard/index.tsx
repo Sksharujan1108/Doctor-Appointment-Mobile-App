@@ -1,3 +1,5 @@
+/* eslint-disable no-sparse-arrays */
+/* eslint-disable react-native/no-inline-styles */
 import {
   Dimensions,
   Image,
@@ -55,7 +57,7 @@ const DoctorCard = (props: DoctorCardProps) => {
   });
 
   const specialityObj = useMemo(() => {
-    return data?.find(item => item?.id == getData?.speciality);
+    return data?.find(item => item?.id === getData?.speciality);
   }, [getData?.speciality, data]);
 
   return (
@@ -80,7 +82,7 @@ const DoctorCard = (props: DoctorCardProps) => {
         </View>
         {/*  */}
       </View>
-      <View 
+      <View
         style={[
           changeRowContainer,
           {flexDirection: 'row', padding: 5},

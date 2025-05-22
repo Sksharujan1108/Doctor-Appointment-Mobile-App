@@ -1,14 +1,54 @@
 export const specialtiesData = [
-  { id: '1', title: 'Dermatologist', description: 'Expert in skin, hair, and nails.' },
-  { id: '2', title: 'Cardiologist', description: 'Specialist in heart and blood vessel disorders.' },
-  { id: '3', title: 'Orthopedic Surgeon', description: 'Expert in musculoskeletal system issues.' },
-  { id: '4', title: 'Neurologist', description: 'Specialist in disorders of the nervous system.' },
-  { id: '5', title: 'Pediatrician', description: 'Doctor specializing in children’s health.' },
-  { id: '6', title: 'Ophthalmologist', description: 'Expert in eye care, including surgery.' },
-  { id: '7', title: 'Endocrinologist', description: 'Specialist in hormone-related disorders.' },
-  { id: '8', title: 'Gastroenterologist', description: 'Expert in digestive system disorders.' },
-  { id: '9', title: 'Psychiatrist', description: 'Specialist in mental health and emotional disorders.' },
-  { id: '10', title: 'Urologist', description: 'Expert in urinary tract and male reproductive health.' }
+  {
+    id: '1',
+    title: 'Dermatologist',
+    description: 'Expert in skin, hair, and nails.',
+  },
+  {
+    id: '2',
+    title: 'Cardiologist',
+    description: 'Specialist in heart and blood vessel disorders.',
+  },
+  {
+    id: '3',
+    title: 'Orthopedic Surgeon',
+    description: 'Expert in musculoskeletal system issues.',
+  },
+  {
+    id: '4',
+    title: 'Neurologist',
+    description: 'Specialist in disorders of the nervous system.',
+  },
+  {
+    id: '5',
+    title: 'Pediatrician',
+    description: 'Doctor specializing in children’s health.',
+  },
+  {
+    id: '6',
+    title: 'Ophthalmologist',
+    description: 'Expert in eye care, including surgery.',
+  },
+  {
+    id: '7',
+    title: 'Endocrinologist',
+    description: 'Specialist in hormone-related disorders.',
+  },
+  {
+    id: '8',
+    title: 'Gastroenterologist',
+    description: 'Expert in digestive system disorders.',
+  },
+  {
+    id: '9',
+    title: 'Psychiatrist',
+    description: 'Specialist in mental health and emotional disorders.',
+  },
+  {
+    id: '10',
+    title: 'Urologist',
+    description: 'Expert in urinary tract and male reproductive health.',
+  },
 ];
 
 export const doctorsData = [
@@ -20,7 +60,8 @@ export const doctorsData = [
     email: 'sarah.thompson@medikart.com',
     createdAt: '2024-11-04T13:52:45.554Z',
     updatedAt: '2024-11-05T08:44:38.951Z',
-    image: 'https://www.google.com/imgres?q=doctor%20girls&imgurl=https%3A%2F%2Flookaside.instagram.com%2Fseo%2Fgoogle_widget%2Fcrawler%2F%3Fmedia_id%3D3068522738275831977&imgrefurl=https%3A%2F%2Fwww.instagram.com%2Fp%2FCqVlSw4I9Cp%2F&docid=_Dd8_rjyfrBHiM&tbnid=Wr5VsoyHYZ7jFM&vet=12ahUKEwi1qInpy5uNAxXHR2wGHf8MIUQQM3oECGMQAA..i&w=1057&h=1057&hcb=2&ved=2ahUKEwi1qInpy5uNAxXHR2wGHf8MIUQQM3oECGMQAA',
+    image:
+      'https://www.google.com/imgres?q=doctor%20girls&imgurl=https%3A%2F%2Flookaside.instagram.com%2Fseo%2Fgoogle_widget%2Fcrawler%2F%3Fmedia_id%3D3068522738275831977&imgrefurl=https%3A%2F%2Fwww.instagram.com%2Fp%2FCqVlSw4I9Cp%2F&docid=_Dd8_rjyfrBHiM&tbnid=Wr5VsoyHYZ7jFM&vet=12ahUKEwi1qInpy5uNAxXHR2wGHf8MIUQQM3oECGMQAA..i&w=1057&h=1057&hcb=2&ved=2ahUKEwi1qInpy5uNAxXHR2wGHf8MIUQQM3oECGMQAA',
     rating: '4.5',
     fees: '1500',
   },
@@ -71,5 +112,49 @@ export const doctorsData = [
     image: 'https://images.pexels.com/photos/3845762/pexels-photo-3845762.jpeg',
     rating: '5',
     fees: '1500',
+  },
+];
+
+export const appointmentData = [
+  {
+    id: '1',
+    slot: {
+      date: '2025-02-27',
+      time: '11:00',
+      reminder: '15',
+    },
+    patient: {
+      name: 'Rahul',
+      phoneNumber: '7766091283',
+      age: 22,
+    },
+    doctor: '1', // doctor ID
+    user: '1', // user who booked the appointment
+    status: 'PENDING',
+  },
+];
+
+export const userData = [
+  {
+    id: '1',
+    name: 'Pradeep',
+    image: '',
+    email: '',
+    dob: '',
+    phoneNumber: '9998887770',
+    age: 0,
+    callerId: 'test-user-1',
+    roles: ['USER', 'ADMIN'],
+  },
+  {
+    id: '2',
+    name: 'Dr. Sarah',
+    image: '9876543210',
+    email: 'sarah.thompson@gmail.com',
+    dob: '',
+    phoneNumber: '',
+    age: 0,
+    callerId: '',
+    roles: [],
   },
 ];

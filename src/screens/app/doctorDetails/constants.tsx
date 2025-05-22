@@ -1,4 +1,4 @@
-import { icons } from "@/utlis";
+import { icons } from '@/utlis';
 
 export const maetricesDoctor = [
     {
@@ -20,5 +20,5 @@ export const maetricesDoctor = [
         title: 'Rivews',
         label: '120+',
         icon: icons?.Review,
-    }
-]
+    },
+];

@@ -4,28 +4,18 @@ import { AuthStackParamList } from '@/navigation/navigation-model/auth-model/aut
 import OnBoardingScreen from '@/screens/auth/onboarding';
 import LoginScreen from '@/screens/auth/login';
 import OtpVerificationScreen from '@/screens/auth/otpVerification';
-import HomeScreen from '@/screens/app/home';
-import SearchScreen from '@/screens/app/search';
-import DoctorListScreen from '@/screens/app/doctorsList';
-import DoctorDetailsScreen from '@/screens/app/doctorDetails';
-import BookAppointmentScreen from '@/screens/app/bookAppintment';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName='HomeScreen'
+      initialRouteName="OnBoardingScreen"
       screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen name='OnBoardingScreen' component={OnBoardingScreen} />
-      <Stack.Screen name='LoginScreen' component={LoginScreen} />
-      <Stack.Screen name='OtpVerificationScreen' component={OtpVerificationScreen} />
-      <Stack.Screen name='HomeScreen' component={HomeScreen} />
-      <Stack.Screen name='SearchScreen' component={SearchScreen} />
-      <Stack.Screen name='DoctorListScreen' component={DoctorListScreen} />
-      <Stack.Screen name='DoctorDetailsScreen' component={DoctorDetailsScreen} />
-      <Stack.Screen name='BookAppointmentScreen' component={BookAppointmentScreen} />
+      <Stack.Screen name="OnBoardingScreen" component={OnBoardingScreen} />
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="OtpVerificationScreen" component={OtpVerificationScreen} />
     </Stack.Navigator>
   );
 };

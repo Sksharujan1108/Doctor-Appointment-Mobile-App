@@ -5,7 +5,10 @@ import Colors from '@/utlis/colors';
 import {Calendar} from 'react-native-calendars';
 import SectionHeader from '../sectionHeader';
 import Chip from '../chip';
-import Icon from 'react-native-vector-icons/Ionicons'; // Make sure this is linked
+
+interface AppointmentSlotProps {
+  onChangerHandler: (type: 'date' | 'time' | 'reminder', value: string) => void;
+}
 
 
 const timeSlots = Array.from({length: 8}, (_, i) => ({
@@ -28,7 +31,9 @@ const reminderSlot = [
   },
 ];
 
-const AppointmentSlot = () => {
+const AppointmentSlot = (props: AppointmentSlotProps) => {
+  const { onChangerHandler } = props;
+
   const today = dayjs().format('YYYY-MM-DD'); //  Hide
   const maxDate = dayjs().add(15, 'day').format('YYYY-MM-DD');
 
@@ -36,14 +41,30 @@ const AppointmentSlot = () => {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [selectedRemindTime, setselectedRemindTime] = useState(today);
 
+  // Date
+  const onChangeDate = useCallback((day: any) => {
+    setSelectedDate(day?.dateString);
+    onChangerHandler && onChangerHandler('date', day?.dateString)
+  }, [onChangerHandler]);
+
+  // Time
+  const onChangeSlot = useCallback((index: any) => {
+    setSelectedSlot(index);
+    onChangerHandler && onChangerHandler('time', timeSlots[index].value)
+  }, [onChangerHandler]);
+
+  // Reminder
+  const onChangeReminder = useCallback((index: any) => {
+    setselectedRemindTime(index);
+    onChangerHandler && onChangerHandler('reminder', reminderSlot[index].value)
+  }, [onChangerHandler]);
+
   return (
     <View style={styles.container}>
       <Calendar
         minDate={today}
         maxDate={maxDate}
-        onDayPress={day => {
-          setSelectedDate(day?.dateString);
-        }}
+        onDayPress={onChangeDate}
         markedDates={{
           [selectedDate]: {
             selected: true,
@@ -51,13 +72,6 @@ const AppointmentSlot = () => {
             selectedColor: Colors?.Primary,
           },
         }}
-        // renderArrow={(direction) => (
-        //   <Icon
-        //     name={direction === 'left' ? 'chevron-back' : 'chevron-forward'}
-        //     size={20}
-        //     color="#fff"
-        //   />
-        // )}
         theme={{
           todayTextColor: Colors?.secondary,
           selectedDayBackgroundColor: Colors?.Primary,
@@ -107,7 +121,7 @@ const AppointmentSlot = () => {
               name={item?.time}
               descripition={item?.value}
               selected={selectedSlot}
-              onChange={index => setSelectedSlot(index)}
+              onChange={index => onChangeSlot(index)}
             />
           )}
         />
@@ -118,7 +132,7 @@ const AppointmentSlot = () => {
               index={index}
               name={item?.title}
               descripition={item?.value}
-              onChange={index => setselectedRemindTime(index)}
+              onChange={index => onChangeReminder(index)}
               selected={selectedRemindTime}
             />
           ))}

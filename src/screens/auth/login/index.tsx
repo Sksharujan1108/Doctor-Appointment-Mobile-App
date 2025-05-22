@@ -1,7 +1,5 @@
 import {
   Image,
-  ImageBackground,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,

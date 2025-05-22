@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#0B3DA9',
   },
   bgImage: {
-    flex: 1
+    flex: 1,
   },
   doctorImageContainer: {
     flex: 0.65,

@@ -3,6 +3,6 @@ const Colors = {
     secondary: '#fff',
     danger: '#BC1A2D',
     black: '#000',
-}
+};
 
 export default Colors;
