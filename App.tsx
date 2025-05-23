@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import Routes from '@/navigation/routes';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
